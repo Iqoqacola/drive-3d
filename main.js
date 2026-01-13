@@ -1,6 +1,5 @@
 import * as THREE from 'three';
-import { loadLaptopModel } from './src/models/laptop';
-import { loadCube } from './src/models/cube';
+import { loadCarModel } from './src/models/car';
 import { createLight } from './src/light';
 import { createGround } from './src/models/ground';
 import { createCamera } from './src/camera';
@@ -11,23 +10,23 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-let camera = null;
-let cubeObject = null;
 let lightObject = null;
-
-loadCube(scene, function (cube) {
-    cubeObject = cube
-});
-
 createLight(scene, function (light) {
     lightObject = light;
 })
 
+let camera = null;
 createCamera(renderer, function (cam) {
     camera = cam;
 })
 
 createGround(scene);
+
+// MODELS 3D 
+let carModel = null;
+loadCarModel(scene, function (model) {
+    carModel = model;
+})
 
 function animate() {
 

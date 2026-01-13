@@ -19,7 +19,7 @@ export function createGround(scene, onLoad) {
     });
     const plane = new THREE.Mesh(geometry, material);
     plane.rotation.x = - Math.PI / 2;
-    plane.position.y = -2;
+    plane.position.set(0, 0, 0);
     scene.add(plane);
     if (onLoad) {
         onLoad(plane)
